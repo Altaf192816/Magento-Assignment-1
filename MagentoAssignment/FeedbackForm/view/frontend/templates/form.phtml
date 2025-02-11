@@ -1,0 +1,29 @@
+<?php
+
+use Magento\Framework\View\Element\Template;
+
+?>
+<form action="<?= /** @var Template $block */
+$block->getUrl('feedback/index/submit') ?>" method="post" id="feedback-form">
+    <input type="hidden" name="form_key" value="<?= $block->escapeHtml($block->getFormKey()) ?>">
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" class="required-entry validate-alphanum-with-spaces" minlength="3" maxlength="50" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" class="required-entry validate-email" required><br>
+
+    <label for="telephone">Telephone:</label>
+    <input type="text" name="telephone" id="telephone" class="required-entry validate-phone-international" required><br>
+
+    <label for="message">Message:</label>
+    <textarea name="message" id="message" class="required-entry" required></textarea><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script type="text/javascript">
+    require(['jquery', 'mage/validation'], function($) {
+        $('#feedback-form').validation();
+    });
+</script>

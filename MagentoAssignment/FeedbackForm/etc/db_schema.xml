@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/db_schema.xsd">
+    <table name="feedback" resource="default" engine="innodb" comment="Feedback Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Feedback ID"/>
+        <column xsi:type="varchar" name="name" length="50" nullable="false" comment="Customer Name"/>
+        <column xsi:type="varchar" name="email" length="255" nullable="false" comment="Customer Email"/>
+        <column xsi:type="varchar" name="telephone" length="20" nullable="false" comment="Customer Telephone"/>
+        <column xsi:type="text" name="comment" nullable="false" comment="Feedback Comment"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Feedback Created At"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Feedback Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="FEEDBACK_EMAIL_UNIQUE">
+            <column name="email"/>
+        </constraint>
+        <index referenceId="FEEDBACK_NAME_COMMENT_FULLTEXT" indexType="fulltext">
+            <column name="name"/>
+            <column name="comment"/>
+        </index>
+    </table>
+</schema>

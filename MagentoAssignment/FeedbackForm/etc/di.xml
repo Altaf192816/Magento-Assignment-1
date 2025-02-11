@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MagentoAssignment\FeedbackForm\Api\Data\GridInterface" type="MagentoAssignment\FeedbackForm\Model\Feedback" />
+
+    <virtualType name="MagentoAssignment\FeedbackForm\Model\ResourceModel\Feedback\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">feedback</argument>
+            <argument name="resourceModel" xsi:type="string">MagentoAssignment\FeedbackForm\Model\ResourceModel\Feedback</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="feedback_list_data_source" xsi:type="string">MagentoAssignment\FeedbackForm\Model\ResourceModel\Feedback\Collection</item>
+            </argument>
+            <argument name="collections" xsi:type="array">
+                <item name="feedback_form_data_source" xsi:type="string">MagentoAssignment\FeedbackForm\Model\ResourceModel\Feedback\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

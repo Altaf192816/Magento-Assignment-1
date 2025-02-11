@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MagentoAssignment_FeedbackForm::feedback"
+             title="Feedback"
+             module="MagentoAssignment_FeedbackForm"
+             sortOrder="10"
+             resource="MagentoAssignment_FeedbackForm::feedback"/>
+        <add id="MagentoAssignment_FeedbackForm::feedback_list"
+             title="Manage Feedback"
+             module="MagentoAssignment_FeedbackForm"
+             parent="MagentoAssignment_FeedbackForm::feedback"
+             action="feedback/index/index"
+             sortOrder="10"
+             resource="MagentoAssignment_FeedbackForm::feedback"/>
+    </menu>
+</config>
